@@ -20,14 +20,13 @@ public class Menu {
         while (running) {
             try {
                 String choice = JOptionPane.showInputDialog(
-                    "Menú:\n" +
-                    "1. Añadir restaurante\n" +
-                    "2. Editar restaurante\n" +
-                    "3. Mostrar restaurantes\n" +
-                    "4. Eliminar restaurante\n" +
-                    "Q. Salir del programa\n" +
-                    "Ingrese la opción:"
-                );
+                        "Menú:\n" +
+                                "1. Añadir restaurante\n" +
+                                "2. Editar restaurante\n" +
+                                "3. Mostrar restaurantes\n" +
+                                "4. Eliminar restaurante\n" +
+                                "Q. Salir del programa\n" +
+                                "Ingrese la opción:");
 
                 if (choice == null || choice.equalsIgnoreCase("q")) {
                     running = false;
@@ -123,12 +122,25 @@ public class Menu {
             JOptionPane.showMessageDialog(null, "No hay restaurantes para eliminar.");
             return;
         }
-    
+
         StringBuilder restaurantesList = new StringBuilder("Selecciona el restaurante a eliminar:\n");
         for (int i = 0; i < restaurantes.size(); i++) {
             Restaurante restaurante = restaurantes.get(i);
             restaurantesList.append(i + 1).append(". ").append(restaurante.getNombre()).append("\n");
         }
-    
+
+        int opcion;
+        try {
+            opcion = Integer.parseInt(JOptionPane.showInputDialog(restaurantesList.toString())) - 1;
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Ingrese un número válido.");
+            return;
+        }
+
+        if (opcion < 0 || opcion >= restaurantes.size()) {
+            JOptionPane.showMessageDialog(null, "Opción inválida.");
+            return;
+        }
+
     }
 }
