@@ -118,20 +118,12 @@ public class Menu {
         JOptionPane.showMessageDialog(null, sb.toString());
     }
 
-/*     private static void eliminarRestaurante() {
-        if (restaurantes.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "No hay restaurantes para eliminar.");
-            return;
-        }
-    } */
-
     private static void eliminarRestaurante() {
         if (restaurantes.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No hay restaurantes para eliminar.");
             return;
         }
     
-        // Mostrar lista de restaurantes para seleccionar uno a eliminar
         StringBuilder restaurantesList = new StringBuilder("Selecciona el restaurante a eliminar:\n");
         for (int i = 0; i < restaurantes.size(); i++) {
             Restaurante restaurante = restaurantes.get(i);
