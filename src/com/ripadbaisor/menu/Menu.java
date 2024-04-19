@@ -142,9 +142,13 @@ public class Menu {
             return;
         }
 
-        // Confirmar la eliminación del restaurante seleccionado
         int confirmacion = JOptionPane.showConfirmDialog(null, "¿Está seguro de eliminar este restaurante?",
                 "Confirmar Eliminación", JOptionPane.YES_NO_OPTION);
-                
+        if (confirmacion == JOptionPane.YES_OPTION) {
+            Restaurante restauranteEliminado = restaurantes.remove(opcion);
+            JOptionPane.showMessageDialog(null,
+                    "Restaurante \"" + restauranteEliminado.getNombre() + "\" eliminado correctamente.");
+        }
+
     }
 }
