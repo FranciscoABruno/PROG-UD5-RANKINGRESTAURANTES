@@ -65,19 +65,5 @@ y por ultimo con la letra q salimos del programa
 Y por ultimo pero no menos importante los try catch que son para detectar excepciones en nuestro código.
 Se utilizó en el codigo para evitar excepciones o errores por ejemplo al momento de añadir un restaurante
 
-    private void aniadirRestaurante() {
-        try {
-            String nombre = JOptionPane.showInputDialog("Nombre del restaurante:");
-            String localizacion = JOptionPane.showInputDialog("Localización:");
-            String horario = JOptionPane.showInputDialog("Horario:");
-            int puntuacion = Integer.parseInt(JOptionPane.showInputDialog("Puntuación:"));
+![image](https://github.com/FranciscoABruno/PROG-UD5-RankingRestaurantes/assets/159430483/a5b4306b-8543-459e-985a-d7702e6106f0)
 
-            Restaurante restaurante = new Restaurante(nombre, localizacion, horario, puntuacion);
-            restaurantes.add(restaurante);
-            JOptionPane.showMessageDialog(null, "Restaurante añadido correctamente.");
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Ingrese una puntuación válida (número entero).");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
-        }
-    }
